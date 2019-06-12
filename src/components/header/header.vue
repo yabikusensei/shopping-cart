@@ -19,11 +19,15 @@
       </div>
       <nav class="header__nav-list">
         <ul class="header__list">
-          <li class="header__list__item header__list__item--user">
-            <i class="fas fa-user-circle"></i>
-          </li>
           <li class="header__list__item header__list__item--cart">
-            <i class="fas fa-shopping-cart"></i>
+            <router-link to="/confirm-purchase" class="card__link">
+              <i class="fas fa-shopping-cart"></i>
+            </router-link>
+          </li>
+          <li class="header__list__item header__list__item--user">
+            <a>
+              <i class="fas fa-user-circle"></i>
+            </a>
           </li>
         </ul>
       </nav>
@@ -45,6 +49,9 @@ export default {
   right: 0;
   border-bottom: 1px solid #e8e8e8;
   background: white;
+  box-shadow: 0px 0px 10px 0px #e8e8e8;
+  background-color: white;
+  z-index: 1;
 
   &__logo {
     font-size: 24px;
@@ -60,16 +67,19 @@ export default {
       font-size: 20px;
       height: 100%;
       border-left: 1px solid #e8e8e8;
-      padding: 15px;
-      cursor: pointer;
+
+      a {
+        display: block;
+        padding: 15px;
+      }
 
       &--user {
         font-size: 19px;
+        border-right: 1px solid #e8e8e8;
       }
 
       &--cart {
         font-size: 17px;
-        border-right: 1px solid #e8e8e8;
       }
 
       &:hover {

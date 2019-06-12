@@ -1,36 +1,65 @@
 <template>
   <article class="card">
-    <div class="card__detail">
-      <h2>Vestido de mujer</h2>
-      <p>Color roja con marcas doradas en todas las tallas ...</p>
-    </div>
-    <img
-      src="https://ae01.alicdn.com/kf/HTB13X1IRFXXXXbfXXXXq6xXFXXXO/woman-cloth-Women-s-fashion-sexy-sling-strapless-waist-plaid-Stretch-aliexpress-uk-Pencil-elegant-Beach.jpg_640x640.jpg"
-    >
-    <div class="card__add">
-      <button class="btn btn--sec btn--block">Agregar</button>
+    <div class="card__wrap">
+      <router-link v-bind:to="'/products/'+id" class="card__link">
+        <div class="card__detail">
+          <h2>Vestido de mujer</h2>
+          <p>Color roja con marcas doradas en todas las tallas ...</p>
+        </div>
+        <img
+          src="https://ae01.alicdn.com/kf/HTB13X1IRFXXXXbfXXXXq6xXFXXXO/woman-cloth-Women-s-fashion-sexy-sling-strapless-waist-plaid-Stretch-aliexpress-uk-Pencil-elegant-Beach.jpg_640x640.jpg"
+        >
+      </router-link>
+      <div class="card__add">
+        <button class="btn btn--sec btn--block">Agregar</button>
+      </div>
     </div>
   </article>
 </template>
 
 <script>
 export default {
-  name: "cod-card"
+  name: "cod-card",
+  data() {
+    return {
+      url: "www.google.com"
+    };
+  },
+  props: {
+    id: [String, Number]
+  },
+  computed: {},
+  mounted() {
+    console.log("id", this.id);
+  }
 };
 </script>
 
 <style lang="scss" scoped>
 .card {
+  max-width: 25%;
   display: inline-block;
-  border: 1px solid #e8e8e8;
-  border-radius: 3px;
-  padding: 8px;
-  transition: box-shadow 0.3s ease;
-  margin: 0 10px 20px;
-  max-width: 280px;
+  padding: 0 20px 0 0;
+  margin: 0 0 20px;
+
+  &:nth-child(4n + 4) {
+    padding-right: 0;
+  }
+
+  &__wrap {
+    position: relative;
+    padding: 8px;
+    border: 1px solid #e8e8e8;
+    border-radius: 3px;
+    transition: box-shadow 0.3s ease;
+
+    &:hover {
+      box-shadow: 0px 0px 10px 1px #eaeaea;
+    }
+  }
 
   img {
-    width: 250px;
+    width: 202px;
     border-radius: 3px;
     display: block;
   }
@@ -58,11 +87,18 @@ export default {
     text-align: center;
     border-top: 1px solid #e8e8e8;
     padding: 10px 5px 5px;
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+  }
+
+  &__link {
+    display: block;
+    padding-bottom: 49px;
   }
 
   &:hover {
-    box-shadow: 0px 0px 10px 1px #f0f0f0;
-
     .btn {
       background: #293880;
       color: white;

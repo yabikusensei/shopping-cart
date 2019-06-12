@@ -15,6 +15,6 @@
 <style lang="scss" scoped>
   .main {
     flex: 1;
-    padding: 73px 0 20px;
+    padding: 73px 0 76px;
   }
 </style>

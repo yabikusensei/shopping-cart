@@ -15,8 +15,13 @@
 
 <style lang="scss" scoped>
   .footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
     padding: 20px 0;
     border-top: 1px solid #e8e8e8;
+    background: white;
 
     .container {
       display: flex;

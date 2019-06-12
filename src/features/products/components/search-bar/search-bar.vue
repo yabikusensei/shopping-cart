@@ -21,14 +21,16 @@ export default {
   padding: 5px;
   border-radius: 3px;
   margin-bottom: 20px;
+  background: #eaeaea;
+  border: 1px solid #e4e4e4;
 
   &.focus {
-    
   }
 
   input {
     width: 100%;
     border: 0;
+    font-size: 16px;
   }
 }
 </style>

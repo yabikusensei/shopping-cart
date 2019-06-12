@@ -1,6 +1,6 @@
 <template>
   <div class="products">
-    <card v-for="n in 10"></card>
+    <card v-for="(item, index) in 12" v-bind:id="index" v-bind:key="index"></card>
   </div>
 </template>
 
@@ -18,6 +18,5 @@ export default {
 .products {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
 }
 </style>

@@ -7,10 +7,16 @@
 body {
   font-family: arial;
   font-size: 13px;
+  color:#4c4c4c;
 }
 
 a {
   text-decoration: none;
+  color:#4c4c4c;
+
+  &.is-active {
+    color: #293880
+  }
 }
 
 a:hover,
@@ -25,7 +31,8 @@ input[type="password"] {
   border: 1px solid #e8e8e8;
   transition: box-shadow .3s ease;
   color: #6d6d6d;
-  
+  border-radius: 4px;
+
   &.shadow:focus {
     box-shadow: 0px 0px 10px 1px #f0f0f0;
   }
@@ -63,4 +70,168 @@ Buttons
     background: #f0f9ff;
     color: black;
   }
+
+  &--big {
+    padding: 20px 40px;
+    font-size: 18px;
+  }
+}
+
+.btn-link {
+  color: #293880;
+}
+
+/*
+Text
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #4c4c4c;
+  margin: 0 0 10px;
+}
+
+h1 {
+  font-size: 22px;
+
+  &.title {
+    margin: 0 0 20px;
+    color: black;
+
+    span {
+      position: relative;          
+      &:after {
+        content: '';
+        width: 50%;
+        height: 6px;
+        background: #293880;
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        border-radius: 4px;
+      }      
+    }
+    
+  }
+}
+
+.underline {
+  border-bottom: 1px solid #e8e8e8;
+}
+
+h2 {
+  font-size: 18px;
+}
+
+
+p {
+  color: #6f6f6f;
+  margin: 0 0 10px;
+}
+
+/*
+Helpers
+*/
+.text-center {
+  text-align: center;
+}
+
+
+/*
+Components
+*/
+.table {
+  border-collapse: collapse;
+  width: 100%;
+
+  th {
+    text-align: center;
+  }
+
+  th,
+  td {
+    padding: 10px;
+    border-bottom: 1px solid #e8e8e8;
+  }
+
+  &.table-hover {
+    tr:hover {
+      td {
+        background: #f7f7f7;
+      }
+    }
+  }
+
+  tfoot {
+    td {
+      padding: 40px 10px;
+    }
+  }
+}
+
+.breadcrumb {
+  display: flex;
+  margin: 0 0 10px;
+
+  li {
+    margin-right: 10px;
+
+    &.is-active {
+      color: #293880
+    }
+  }
+}
+
+.list-purchase {
+  &__item {
+    display: flex;
+
+    &__figure {
+      margin-right: 10px;
+
+      img {
+        width: 120px;
+        border: 1px solid #e8e8e8;
+        border-radius: 4px;
+      }
+    }
+
+    &__detail {
+      padding: 10px 0 0;
+
+      h2 {
+        margin: 0 0 5px;
+      }
+    }
+  }
+}
+
+.total-quantity {
+  text-align: center;
+
+  input {
+    margin: 0 10px;
+    width: 80px;
+    text-align: center;
+  }
+}
+
+
+/*
+Flex
+*/
+
+.d-flex {
+  display: flex;
+}
+
+.jc-space-between {
+  justify-content: space-between;
+}
+
+.ai-center {
+  align-items: center;
 }

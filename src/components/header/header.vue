@@ -14,6 +14,9 @@
             <li>
               <a href="http://" target="_blank" rel="noopener noreferrer">Niños</a>
             </li>
+            <li>
+              <a href="http://" target="_blank" rel="noopener noreferrer">Todo</a>
+            </li>
           </ul>
         </nav>
       </div>
@@ -25,9 +28,9 @@
             </router-link>
           </li>
           <li class="header__list__item header__list__item--user">
-            <a>
+            <router-link to="/login" class="card__link">
               <i class="fas fa-user-circle"></i>
-            </a>
+            </router-link>
           </li>
         </ul>
       </nav>
@@ -54,9 +57,11 @@ export default {
   z-index: 1;
 
   &__logo {
-    font-size: 24px;
+    font-size: 28px;
     font-weight: bold;
     color: black;
+    line-height: 100%;
+    margin-top: -4px;
   }
 
   &__list {

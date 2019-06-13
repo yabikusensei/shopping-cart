@@ -32,5 +32,9 @@ export default {
     border: 0;
     font-size: 16px;
   }
+
+  .btn {
+    min-height: 38px;
+  }
 }
 </style>

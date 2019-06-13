@@ -8,6 +8,7 @@ const routeLayout = {
   path: '/',
   component: Layout,
   children: [
+    { path: '/', redirect: '/products' },
     routeCheckout,
     routeProducts,
     routeConfirmPurchase,

@@ -1,15 +1,24 @@
 <template>
   <article class="card">
     <div class="card__wrap">
-      <router-link v-bind:to="'/products/'+id" class="card__link">
-        <div class="card__detail">
-          <h2>Vestido de mujer</h2>
-          <p>Color roja con marcas doradas en todas las tallas ...</p>
-        </div>
+      <article class="card__link">
         <img
           src="https://ae01.alicdn.com/kf/HTB13X1IRFXXXXbfXXXXq6xXFXXXO/woman-cloth-Women-s-fashion-sexy-sling-strapless-waist-plaid-Stretch-aliexpress-uk-Pencil-elegant-Beach.jpg_640x640.jpg"
         >
-      </router-link>
+        <div class="card__detail">
+          <h2><router-link v-bind:to="'/products/'+id">Vestido de mujer</router-link></h2>
+          <p>Color roja con marcas doradas en todas las tallas ...</p>
+          <div class="d-flex jc-space-between ai-center">
+            <h3>S/. 200</h3>
+            <select name="" id="">
+              <option value="">Tamaño</option>
+              <option value="s">S</option>
+              <option value="m">M</option>
+              <option value="l">L</option>
+            </select>
+          </div>
+        </div>
+      </article>
       <div class="card__add">
         <button class="btn btn--sec btn--block">Agregar</button>
       </div>
@@ -72,6 +81,11 @@ export default {
     padding: 0 0 0 10px;
   }
 
+  h3 {
+    margin: 0;
+    color: #293880;
+  }
+
   p {
     color: #6f6f6f;
     font-size: 12px;
@@ -79,8 +93,8 @@ export default {
   }
 
   &__detail {
-    border-bottom: 1px solid #e8e8e8;
-    padding: 0 0 10px;
+    border-top: 1px solid #e8e8e8;
+    padding: 10px 0;
   }
 
   &__add {

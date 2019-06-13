@@ -71,6 +71,11 @@ Buttons
     color: black;
   }
 
+  &--med {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+
   &--big {
     padding: 20px 40px;
     font-size: 18px;
@@ -137,6 +142,30 @@ Helpers
 */
 .text-center {
   text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.mb-10 {
+  margin-bottom: 10px !important;
+}
+
+.mb-20 {
+  margin-bottom: 20px!important;
+}
+
+.mb-0 {
+  margin-bottom: 0!important;
+}
+
+.m-0 {
+  margin: 0!important;
+}
+
+.mb-0 {
+  margin-bottom: 0;
 }
 
 
@@ -210,7 +239,7 @@ Components
 }
 
 .total-quantity {
-  text-align: center;
+  margin: 0 0 20px;
 
   input {
     margin: 0 10px;

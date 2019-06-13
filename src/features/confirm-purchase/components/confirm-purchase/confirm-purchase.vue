@@ -1,26 +1,22 @@
 <template>
   <div class="confirm-purchase">
     <ul class="breadcrumb">
-      <li><router-link to="/products" class="card__link">products</router-link></li>
+      <li>
+        <router-link to="/products" class="card__link">products</router-link>
+      </li>
       <li>></li>
       <li class="is-active">confirm-purchase</li>
     </ul>
-    <h1 class="title"><span>Orden de compra</span></h1>
+    <h1 class="title">
+      <span>Orden de compra</span>
+    </h1>
     <table class="table table-hover list-purchase">
       <thead>
         <tr>
-          <th>
-            Item
-          </th>
-          <th>
-            Quantity
-          </th>
-          <th>
-            Price
-          </th>
-          <th>
-            Total
-          </th>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Price</th>
+          <th>Total</th>
         </tr>
       </thead>
       <tbody>
@@ -41,7 +37,7 @@
           <td>
             <div class="total-quantity">
               <button class="btn">-</button>
-              <input class="shadow" type="text"/>
+              <input class="shadow" type="text">
               <button class="btn">+</button>
             </div>
           </td>
@@ -51,15 +47,19 @@
       </tbody>
       <tfoot>
         <tr>
-          <td colspan="3"><h3>Total</h3></td>
-          <td class="text-center"><h2>S/. 80</h2></td>
+          <td colspan="3">
+            <h3>Total</h3>
+          </td>
+          <td class="text-center">
+            <h2>S/. 80</h2>
+          </td>
         </tr>
       </tfoot>
     </table>
 
     <div class="continue">
-        <router-link to="/products" class="btn-link">&lt; Seguir comprando</router-link>
-        <router-link to="/checkout" class="btn btn--big">Pagar</router-link>
+      <router-link to="/products" class="btn-link">&lt; Seguir comprando</router-link>
+      <router-link to="/checkout" class="btn btn--big">Pagar</router-link>
     </div>
   </div>
 </template>

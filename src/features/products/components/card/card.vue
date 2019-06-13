@@ -38,6 +38,11 @@ export default {
     id: [String, Number]
   },
   computed: {},
+  methods: {
+    method1() {
+
+    }
+  },
   mounted() {
     console.log("id", this.id);
   }

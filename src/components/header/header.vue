@@ -2,7 +2,7 @@
   <header class="header">
     <div class="container">
       <div class="header__left">
-        <a class="header__logo" href="/">Shopping-Cart</a>
+        <router-link to="/" class="header__logo">Shopping-Cart</router-link>
         <nav class="header__nav-main">
           <ul>
             <li>

@@ -35,11 +35,7 @@
             </div>
           </td>
           <td>
-            <div class="total-quantity">
-              <button class="btn">-</button>
-              <input class="shadow" type="text">
-              <button class="btn">+</button>
-            </div>
+            <cod-total-quantity v-on:sendInput="onInput"></cod-total-quantity>
           </td>
           <td class="text-center">S/. 20</td>
           <td class="text-center">S/. 20</td>
@@ -65,8 +61,18 @@
 </template>
 
 <script>
+import CodTotalQuantity from "../../../components/total-quantity/total-quantity";
+
 export default {
-  name: "cod-confirm-purchase"
+  name: "cod-confirm-purchase",
+  components: {
+    "cod-total-quantity": CodTotalQuantity
+  },
+  methods: {
+    onInput(value) {
+      console.log('Hola hijo',value); // someValue
+    }
+  }
 };
 </script>
 

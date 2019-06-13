@@ -5,14 +5,19 @@ const routeProducts = {
   path: '/products',
   component: Layout,
   children: [
-   {
-     path: '',
-     component: Products
-   },
-   {
-     path: ':id',
-     component: ProductsDetail
-   }
+    {
+      path: '',
+      component: Products,
+      meta: {
+        breadcrumb: [
+          { name: 'Hello World' }
+        ]
+      }
+    },
+    {
+      path: ':id',
+      component: ProductsDetail
+    }
   ]
 }
 

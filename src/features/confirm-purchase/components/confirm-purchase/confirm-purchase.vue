@@ -35,7 +35,7 @@
             </div>
           </td>
           <td>
-            <cod-total-quantity v-on:sendInput="onInput"></cod-total-quantity>
+            <cod-total-quantity v-on:quantity="onInput"></cod-total-quantity>
           </td>
           <td class="text-center">S/. 20</td>
           <td class="text-center">S/. 20</td>

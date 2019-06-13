@@ -18,7 +18,7 @@ export default {
   },
   watch: {
     counter(current, old) {
-       this.$emit("sendInput", current);
+       this.$emit("quantity", current);
     }
   },
   methods: {

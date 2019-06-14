@@ -16,6 +16,8 @@ const routeProducts = {
     },
     {
       path: ':id',
+      name: 'detail',
+      props: { default: true, sidebar: false },
       component: ProductsDetail
     }
   ]

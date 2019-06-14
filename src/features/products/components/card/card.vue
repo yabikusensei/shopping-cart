@@ -2,19 +2,22 @@
   <article class="card">
     <div class="card__wrap">
       <article class="card__link">
-        <img
+        <!-- <img
           src="https://ae01.alicdn.com/kf/HTB13X1IRFXXXXbfXXXXq6xXFXXXO/woman-cloth-Women-s-fashion-sexy-sling-strapless-waist-plaid-Stretch-aliexpress-uk-Pencil-elegant-Beach.jpg_640x640.jpg"
+        > -->
+        <img
+          v-bind:src="product.photos[0]"
         >
         <div class="card__detail">
-          <h2><router-link v-bind:to="'/products/'+id">Vestido de mujer</router-link></h2>
-          <p>Color roja con marcas doradas en todas las tallas ...</p>
+          <h2><router-link v-bind:to="{name:'detail', params: {id: product.id, type: product.type}}">{{product.name}}</router-link></h2>
+          <p>{{product.description}}</p>
           <div class="d-flex jc-space-between ai-center">
-            <h3>S/. 200</h3>
+            <h3>{{product.currency}} {{product.price}}</h3>
             <select name="" id="">
               <option value="">Tamaño</option>
-              <option value="s">S</option>
-              <option value="m">M</option>
-              <option value="l">L</option>
+              <option v-for="(option, index) in product.size" v-bind:value="option" v-bind:key="index">
+                {{option}}
+              </option>
             </select>
           </div>
         </div>
@@ -35,16 +38,13 @@ export default {
     };
   },
   props: {
-    id: [String, Number]
+    product: [Object]
   },
   computed: {},
   methods: {
-    method1() {
-
-    }
   },
   mounted() {
-    console.log("id", this.id);
+    console.log("product", this.product);
   }
 };
 </script>

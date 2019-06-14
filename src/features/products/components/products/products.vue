@@ -2,7 +2,7 @@
   <div class="products">
     <cod-search-bar></cod-search-bar>
     <div class="products__list">
-      <card v-for="(item, index) in 12" v-bind:id="index" v-bind:key="index"></card>
+      <card v-for="item in products" v-bind:product="item" v-bind:key="item.id"></card>
     </div>
   </div>
 </template>
@@ -14,7 +14,6 @@ import { mapState } from "vuex";
 import { mapGetters } from "vuex";
 import { mapActions } from "vuex";
 
-import store from "vuex";
 export default {
   name: "cod-products",
   components: {
@@ -27,26 +26,13 @@ export default {
     };
   },
   computed: {
-    comInfo1() {
-      return this.info1;
-    },
     ...mapState({
-      // arrow functions can make the code very succinct!
-      count: state => state.count,
-      name: state => state.name,
-      products: state => state.products
+      products: state => state.products.allProducts
     }),
     ...mapGetters({
-      // map `this.doneCount` to `this.$store.getters.doneTodosCount`
-      getId: "getTodoById"
     })
   },
   methods: {
-    increment() {
-      // this.$store.dispatch("sincrement", 2);
-      this.add(2)
-      //this.$store.commit('increment', 10)
-    },
      ...mapActions({
       getAllProducts: 'getAllProducts'
     })

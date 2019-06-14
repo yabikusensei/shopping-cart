@@ -10,44 +10,27 @@
     <div class="detail__product">
       <div class="detail__product__img slide-product d-flex">
         <ul>
-          <li>
-            <img
-              src="https://ae01.alicdn.com/kf/HTB13X1IRFXXXXbfXXXXq6xXFXXXO/woman-cloth-Women-s-fashion-sexy-sling-strapless-waist-plaid-Stretch-aliexpress-uk-Pencil-elegant-Beach.jpg_640x640.jpg"
-            >
-          </li>
-          <li>
-            <img
-              src="https://ae01.alicdn.com/kf/HTB13X1IRFXXXXbfXXXXq6xXFXXXO/woman-cloth-Women-s-fashion-sexy-sling-strapless-waist-plaid-Stretch-aliexpress-uk-Pencil-elegant-Beach.jpg_640x640.jpg"
-            >
-          </li>
-          <li>
-            <img
-              src="https://ae01.alicdn.com/kf/HTB13X1IRFXXXXbfXXXXq6xXFXXXO/woman-cloth-Women-s-fashion-sexy-sling-strapless-waist-plaid-Stretch-aliexpress-uk-Pencil-elegant-Beach.jpg_640x640.jpg"
-            >
-          </li>
-          <li>
-            <img
-              src="https://ae01.alicdn.com/kf/HTB13X1IRFXXXXbfXXXXq6xXFXXXO/woman-cloth-Women-s-fashion-sexy-sling-strapless-waist-plaid-Stretch-aliexpress-uk-Pencil-elegant-Beach.jpg_640x640.jpg"
-            >
+          <li v-for="(img, index) in productDetail.photos" v-bind:key="index">
+            <img v-bind:src="img">
           </li>
         </ul>
         <figure>
           <img
-            src="https://ae01.alicdn.com/kf/HTB13X1IRFXXXXbfXXXXq6xXFXXXO/woman-cloth-Women-s-fashion-sexy-sling-strapless-waist-plaid-Stretch-aliexpress-uk-Pencil-elegant-Beach.jpg_640x640.jpg"
+            v-bind:src="productDetail.photos[0]"
           >
         </figure>
       </div>
       <div class="detail__product__text">
         <div class="detail__product__top">
-          <h3>4 vendidos</h3>
+          <h3>{{productDetail.sales}} vendidos</h3>
           <div class="detail__product__intro">
             <h1 class="title">
-              <span>Vestido de mujer</span>
+              <span>{{productDetail.name}}</span>
             </h1>
-            <p>Color roja con marcas doradas en todas las tallas Color roja con marcas doradas en todas las tallas Color roja con marcas doradas en todas las tallas Color roja con marcas doradas en todas las tallas</p>
+            <p>{{productDetail.description}}</p>
           </div>
           <div class="detail__product__price">
-            <h2>S/. 200</h2>
+            <h2>{{productDetail.currency}} {{productDetail.price}}</h2>
             <p>Hasta 12 cuotas sin intereses</p>
           </div>
         </div>
@@ -68,10 +51,33 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
+import { mapGetters } from "vuex";
+import { mapActions } from "vuex";
 export default {
   name: "cod-products-detail",
   mounted() {
-    console.log('mounted!!')
+    console.log("mounted!!");
+  },
+  computed: {
+    ...mapState({
+      productDetail: state => state.products.productDetail
+    }),
+  },
+  methods: {
+    ...mapState({
+      productDetail: state => state.products.productDetail
+    }),
+    ...mapActions({
+      getDetail: "getDetail"
+    })
+  },
+  mounted() {
+    this.getDetail({
+      id: this.$route.params.id,
+      type: this.$route.params.type
+    });
+    console.log('this.productDetail', this.productDetail)
   }
 };
 </script>

@@ -2,24 +2,6 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 
 Vue.use(Vuex)
-// const products = {
-//   state: {
-//     shopping: [
-//       0, 1, 2
-//     ]
-//   },
-//   mutations: {
-//     increment(state, n) {
-//       state.shopping.push(n)
-//     }
-//   },
-//   actions: {
-//     increment({ commit }, n) {
-//       commit('increment', n)
-//     }
-//   },
-//   getters: {}
-// }
 
 import {
   storeProducts as products

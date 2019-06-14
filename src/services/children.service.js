@@ -6,6 +6,12 @@ class ChildrenService extends Service {
       url: `children`
     })
   }
+
+  getProduct(id) {
+    return this.request({
+      url: `children/${id}`
+    })
+  }
 }
 
 export {

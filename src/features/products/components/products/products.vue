@@ -1,7 +1,5 @@
 <template>
   <div class="products">
-    count{{count}}{{name}}
-    <button v-on:click="increment">increment</button>
     <cod-search-bar></cod-search-bar>
     <div class="products__list">
       <card v-for="(item, index) in 12" v-bind:id="index" v-bind:key="index"></card>

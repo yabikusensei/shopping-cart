@@ -52,11 +52,7 @@ export default {
     })
   },
   mounted() {
-    // console.log('mounted!!!')
-    // console.log('store', this.$store.state.count)
-    // console.log("store", this.$store.getters.getTodoById(1));
-    // console.log("getId", this.getId(0));
-    console.log('products', this.products.shopping)
+
   }
 };
 </script>

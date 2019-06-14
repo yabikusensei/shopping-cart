@@ -8,7 +8,7 @@ const childrenService = new ChildrenService();
 const womenService = new WomenService();
 const menService = new MenService();
 
-const StoreProducts = {
+const storeProducts = {
   state: {
     allProducts: [],
     menProducts: [],
@@ -20,7 +20,7 @@ const StoreProducts = {
   },
   actions: {
     getAllProducts({commit}) {
-      childrenService()
+      childrenService
       .getAllProducts()
       .then((response) => {
         console.log('response', response)
@@ -33,5 +33,5 @@ const StoreProducts = {
 }
 
 export {
-  StoreProducts
+  storeProducts
 }

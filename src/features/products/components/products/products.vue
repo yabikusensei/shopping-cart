@@ -48,11 +48,11 @@ export default {
       //this.$store.commit('increment', 10)
     },
      ...mapActions({
-      add: 'increment' // map `this.add()` to `this.$store.dispatch('increment')`
+      getAllProducts: 'getAllProducts'
     })
   },
   mounted() {
-
+    this.getAllProducts()
   }
 };
 </script>

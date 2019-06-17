@@ -22,23 +22,36 @@ export default {
   },
   data() {
     return {
-      info1: ""
+      products : []
     };
   },
   computed: {
     ...mapState({
-      products: state => state.products.allProducts
-    }),
-    ...mapGetters({
+      menProducts: state => state.products.menProducts,
+      womenProducts: state => state.products.womenProducts,
+      childrenProducts: state => state.products.childrenProducts,
+      allProducts: state => state.products.allProducts
     })
+  },
+  watch: {
+    $attrs(value) {
+      this.getProducts(value)
+    }
   },
   methods: {
      ...mapActions({
+      getProductsMen: 'getProductsMen',
+      getProductsWomen: 'getProductsWomen',
+      getProductsChildren: 'getProductsChildren',
       getAllProducts: 'getAllProducts'
-    })
+    }),
+    getProducts({type}) {
+      console.log('type', type)
+    }
   },
   mounted() {
-    this.getAllProducts()
+    this.getProducts(this.$attrs)
+    //this.getAllProducts()
   }
 };
 </script>

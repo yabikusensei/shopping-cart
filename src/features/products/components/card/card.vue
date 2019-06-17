@@ -44,7 +44,7 @@ export default {
   methods: {
   },
   mounted() {
-    console.log("product", this.product);
+    //console.log("product", this.product);
   }
 };
 </script>

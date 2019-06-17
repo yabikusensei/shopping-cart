@@ -7,17 +7,31 @@ const routeProducts = {
   children: [
     {
       path: '',
+      name: 'products',
       component: Products,
-      meta: {
-        breadcrumb: [
-          { name: 'Hello World' }
-        ]
-      }
+      props: { type: 'all' }
     },
     {
-      path: ':id',
+      path: 'men',
+      name: 'men',
+      component: Products,
+      props: { type: 'men' }
+    },
+    {
+      path: 'women',
+      name: 'women',
+      component: Products,
+      props: { type: 'women' }
+    },
+    {
+      path: 'children',
+      name: 'children',
+      component: Products,
+      props: { type: 'children' }
+    },
+    {
+      path: ':category/:id',
       name: 'detail',
-      props: { default: true, sidebar: false },
       component: ProductsDetail
     }
   ]

@@ -1,27 +1,40 @@
 import {
-  ChildrenService,
+  MenService,
   WomenService,
-  MenService
+  ChildrenService
 } from '../../../services';
 
-const childrenService = new ChildrenService();
-const womenService = new WomenService();
 const menService = new MenService();
+const womenService = new WomenService();
+const childrenService = new ChildrenService();
 
 import {
+  SET_PRODUCTS_MEN,
+  SET_PRODUCTS_WOMEN,
+  SET_PRODUCTS_CHILDREN,
   SET_ALL_PRODUCTS,
-  SET_PRODUCT_DETAIL
+  SET_PRODUCT_DETAIL,
 } from './mutatyon-types';
 
 const storeProducts = {
   state: {
-    allProducts: [],
     menProducts: [],
     womenProducts: [],
+    childrenProducts: [],
+    allProducts: [],
+    productDetail: {},
     shopping: [],
-    productDetail: {}
   },
   mutations: {
+    [SET_PRODUCTS_MEN](state, products) {
+      state.menProducts = products;
+    },
+    [SET_PRODUCTS_WOMEN](state, products) {
+      state.womenProducts = products;
+    },
+    [SET_PRODUCTS_CHILDREN](state, products) {
+      state.childrenProducts = products;
+    },
     [SET_ALL_PRODUCTS](state, products) {
       state.allProducts = products;
     },
@@ -30,6 +43,15 @@ const storeProducts = {
     }
   },
   actions: {
+    getProductsMen({commit}) {
+
+    },
+    getProductsWomen({commit}) {
+
+    },
+    getProductsChildren({commit}) {
+
+    },
     getAllProducts({ commit }) {
       Promise.all([
         childrenService.getAllProducts(),
@@ -40,11 +62,8 @@ const storeProducts = {
         commit(SET_ALL_PRODUCTS, allProducts)
       })
     },
-
     getDetail({ commit }, {id, type}) {
-      console.log('type',id, type)
       if (type === 'children') {
-        console.log('children!!!')
         childrenService.getProduct(id).then((product) => {
           commit(SET_PRODUCT_DETAIL, product)
         })

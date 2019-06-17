@@ -8,6 +8,7 @@ class ChildrenService extends Service {
   }
 
   getProduct(id) {
+    console.log('id', id)
     return this.request({
       url: `children/${id}`
     })

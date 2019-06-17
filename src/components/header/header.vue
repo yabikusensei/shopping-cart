@@ -6,16 +6,16 @@
         <nav class="header__nav-main">
           <ul>
             <li>
-              <a href="http://" target="_blank" rel="noopener noreferrer">Caballeros</a>
+              <router-link to="/products/men">Caballeros</router-link>
             </li>
             <li>
-              <a href="http://" target="_blank" rel="noopener noreferrer">Damas</a>
+              <router-link to="/products/women">Damas</router-link>
             </li>
             <li>
-              <a href="http://" target="_blank" rel="noopener noreferrer">Niños</a>
+              <router-link to="/products/children">Niños</router-link>
             </li>
             <li>
-              <a href="http://" target="_blank" rel="noopener noreferrer">Todo</a>
+              <router-link to="/products">Todo</router-link>
             </li>
           </ul>
         </nav>
@@ -25,6 +25,7 @@
           <li class="header__list__item header__list__item--cart">
             <router-link to="/confirm-purchase" class="card__link">
               <i class="fas fa-shopping-cart"></i>
+              <span class="total">0</span>
             </router-link>
           </li>
           <li class="header__list__item header__list__item--user">
@@ -76,6 +77,7 @@ export default {
       a {
         display: block;
         padding: 15px;
+        position: relative;
       }
 
       &--user {
@@ -91,6 +93,19 @@ export default {
         background: #f0f9ff;
         color: #293880;
       }
+    }
+
+    .total {
+      position: absolute;
+      background: red;
+      color: white;
+      font-size: 10px;
+      width: 15px;
+      height: 15px;
+      border-radius: 100%;
+      text-align: center;
+      line-height: 15px;
+      top: 8px;
     }
   }
 

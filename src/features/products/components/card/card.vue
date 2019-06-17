@@ -2,14 +2,11 @@
   <article class="card">
     <div class="card__wrap">
       <article class="card__link">
-        <!-- <img
-          src="https://ae01.alicdn.com/kf/HTB13X1IRFXXXXbfXXXXq6xXFXXXO/woman-cloth-Women-s-fashion-sexy-sling-strapless-waist-plaid-Stretch-aliexpress-uk-Pencil-elegant-Beach.jpg_640x640.jpg"
-        > -->
         <img
           v-bind:src="product.photos[0]"
         >
         <div class="card__detail">
-          <h2><router-link v-bind:to="{name:'detail', params: {id: product.id, type: product.type}}">{{product.name}}</router-link></h2>
+          <h2><router-link v-bind:to="{name:'detail', params: {id: product.id, category: product.type}}">{{product.name}}</router-link></h2>
           <p>{{product.description}}</p>
           <div class="d-flex jc-space-between ai-center">
             <h3>{{product.currency}} {{product.price}}</h3>
@@ -23,25 +20,29 @@
         </div>
       </article>
       <div class="card__add">
-        <button class="btn btn--sec btn--block">Agregar</button>
+        <button  @click="shopping(product)" class="btn btn--sec btn--block">Agregar</button>
       </div>
     </div>
   </article>
 </template>
 
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "cod-card",
   data() {
     return {
-      url: "www.google.com"
-    };
+
+    }
   },
   props: {
     product: [Object]
   },
   computed: {},
   methods: {
+    ...mapActions({
+      shopping: "shopping"
+    })
   },
   mounted() {
     //console.log("product", this.product);

@@ -52,22 +52,15 @@
 
 <script>
 import { mapState } from "vuex";
-import { mapGetters } from "vuex";
 import { mapActions } from "vuex";
 export default {
   name: "cod-products-detail",
-  mounted() {
-    console.log("mounted!!");
-  },
   computed: {
     ...mapState({
       productDetail: state => state.products.productDetail
     }),
   },
   methods: {
-    ...mapState({
-      productDetail: state => state.products.productDetail
-    }),
     ...mapActions({
       getDetail: "getDetail"
     })
@@ -75,9 +68,8 @@ export default {
   mounted() {
     this.getDetail({
       id: this.$route.params.id,
-      type: this.$route.params.type
+      category: this.$route.params.category
     });
-    console.log('this.productDetail', this.productDetail)
   }
 };
 </script>

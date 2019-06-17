@@ -6,6 +6,12 @@ class MenService extends Service {
       url: `men`
     })
   }
+
+  getProduct(id) {
+    return this.request({
+      url: `men/${id}`
+    })
+  }
 }
 
 export {

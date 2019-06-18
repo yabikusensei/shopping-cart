@@ -1,3 +1,5 @@
+import Vue from 'vue';
+
 import {
   MenService,
   WomenService,
@@ -44,14 +46,14 @@ const storeProducts = {
     },
     [SET_SHOPPING](state, product) {
       const found = state.shopping.find(el => el.id === product.id)
-      const index = state.shopping
-        .map(item => item.id).indexOf(product.id);
+      const index = state.shopping.map(item => item.id).indexOf(product.id);
 
       if (!found) {
         product.total = 1;
         state.shopping.push(product)
       } else {
         state.shopping[index].total = state.shopping[index].total + 1;
+        state.shopping = [...state.shopping]
       }
     }
   },

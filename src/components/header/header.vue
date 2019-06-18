@@ -25,7 +25,7 @@
           <li class="header__list__item header__list__item--cart">
             <router-link to="/confirm-purchase" class="card__link">
               <i class="fas fa-shopping-cart"></i>
-              <span class="total">0</span>
+              <span class="total">{{shopping}}</span>
             </router-link>
           </li>
           <li class="header__list__item header__list__item--user">
@@ -40,8 +40,34 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
-  name: "cod-header"
+  name: "cod-header",
+  computed: {
+    ...mapState({
+      shopping(state) {
+        return this.getTotal(state.products.shopping)
+      }
+    })
+  },
+  watch: {
+    shopping(shopping) {
+      return this.getTotal(shopping)
+    }
+  },
+  methods: {
+    getTotal(shopping) {
+      if(shopping.length) {
+        return shopping.reduce(((ant, act) => {
+          return ant + act.total
+        }), 0);
+      }
+      return 0;
+    }
+  },
+  mounted() {
+
+  }
 };
 </script>
 
@@ -78,6 +104,12 @@ export default {
         display: block;
         padding: 15px;
         position: relative;
+
+        &.router-link-active {
+          background: #f0f9ff;
+          color: #293880;
+          cursor: default;
+        }
       }
 
       &--user {
